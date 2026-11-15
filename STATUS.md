@@ -10,14 +10,14 @@
 - 2026-11-17: 初期版を作成（業スー酒場のつくりを参考に）。並びは追加した順（先着順）、印は「一人旅」「遍路宿」、絞り込み（すべて・一人旅・遍路宿・行ってみたい）、「行ってみたい」の保存（そのスマホの中だけ）、検索対策（`docs/seo.md`）、ホーム画面に追加のボタン
 - 最初の7軒: 音羽旅館（淡路島）・民宿まるたや（遍路、楽天に無い宿）・わすけ（新潟）・室戸荘（遍路）・原田屋旅館（山口）・蔵空間蔵宿（遍路）・国民宿舎 大城（山口）。リンクは affiliate-ops の台帳と一致することを確かめた
 - 2026-11-17: 人が Threads と同じアイコン（1080×1080）を渡した → `design/logo-source.png` に置き、アイコン・共有用の絵を作り直した
+- 2026-11-17: 人が楽天アフィリエイトの「サイト情報」に `https://uniiqcode.com/yado-kuchikomi/`（Web_宿の口コミ・2位）を登録。Threads_宿の口コミ（1位）は編集で一度消えたので登録し直した。PR #1 を作成
 
 ## 次にやること
 
 | やること | 担当 |
 |----------|------|
-| 楽天アフィリエイトの「サイト情報」に `https://uniiqcode.com/yado-kuchikomi/` を登録する（リンクを載せる前に） | 人 |
-| リポジトリの Settings → Pages の Source を「GitHub Actions」にする | 人 |
-| PR をマージして公開 → Search Console にサイトマップを送信、robots.txt に1行（`docs/seo.md`） | 人＋Claude |
+| Settings → Pages の Source を「GitHub Actions」にしてから PR #1 をマージ | 人 |
+| 公開の後 → Search Console にサイトマップを送信、robots.txt に1行（`docs/seo.md`） | 人＋Claude |
 | 訪問者数のカウンター（GoatCounter）を入れるか決める（入れるならサイトのコードを人が作る） | 人 |
 | 毎週、宿を足す（`docs/weekly.md`） | 人＋Claude |
 
