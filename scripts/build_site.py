@@ -5,6 +5,7 @@
 - 県のページ（<slug>/index.html）: どうやって探したか（絞り込みの段）と、候補の宿（data/prefs/<slug>.json）。
   候補の一覧は #candidates で直接開ける（Threads から「候補の宿」へすぐ飛ばすため）
 - 遍路宿のページ（henro/index.html）: 紹介した遍路宿
+- 県のページの共有カード（<slug>/og.jpg）は scripts/make_cards.py（Pillow と Noto CJK が無ければ共通の絵）
 - 宿の写真は data/rakuten.json（scripts/fetch_images.py が楽天トラベルの API で取った URL）。左下に楽天トラベルのクレジット
 - 一覧は HTML に書き込む（検索対策。seo-uniiqcode スキルの手順2）。sitemap.xml も作る
 """
@@ -14,6 +15,10 @@ import html
 import json
 import os
 import shutil
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import make_cards  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE_URL = "https://uniiqcode.com/yado-kuchikomi/"   # 正式な URL（seo-uniiqcode スキル）
@@ -107,6 +112,8 @@ def cand_card(c, images, yado_ids):
     pick = ""
     if c.get("pick") and c["pick"] in yado_ids:
         pick = f'<a class="pick" href="../#{e(c["pick"])}">紹介した宿 → 詳しく</a>'
+    if c.get("three"):
+        pick = '<span class="pick three">行きたい宿の3軒</span>' + pick
     img = images.get(str(c["hotelNo"]), {})
     acc = f'<span class="acc {ACCESS.get(a["mark"], "acc-q")}">{e(a["mark"])} {e(a["note"])}</span>' if a.get("note") else ""
     return f'''<article class="cand" id="h{e(str(c["hotelNo"]))}">
@@ -129,7 +136,7 @@ def json_ld(name, url, items):
     return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
 
 
-def layout(*, title, desc, url, depth, body, ld, tabs, current):
+def layout(*, title, desc, url, depth, body, ld, tabs, current, og=""):
     up = "../" * depth
     cur = ' aria-current="page"'
     tab_html = "".join(
@@ -148,7 +155,7 @@ def layout(*, title, desc, url, depth, body, ld, tabs, current):
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{SITE_URL}assets/og.jpg">
+<meta property="og:image" content="{og or SITE_URL + "assets/og.jpg"}">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="manifest" href="{up}manifest.webmanifest">
@@ -177,6 +184,7 @@ def layout(*, title, desc, url, depth, body, ld, tabs, current):
     <p>クチコミの要約は、楽天トラベルなどのクチコミを読んで、3件以上に出てくる声を自分の言葉でまとめたものです（件数と評価は書いた日の時点）。クチコミの文章は載せていません。料金・空室は、リンク先で確かめてください。</p>
     <p>宿の写真は、楽天トラベルの API で提供されている画像です（左下に「楽天トラベル」と表示）。「楽天トラベルで見る」のうち「PR」と書いたものは、楽天アフィリエイトの広告です。</p>
     <p><a href="https://webservice.rakuten.co.jp/" target="_blank" rel="noopener">Supported by Rakuten Developers</a></p>
+    <p>県の形（共有した時の絵）: 地球地図日本（国土地理院）を加工して作成</p>
     <p>更新: {{{{UPDATED}}}}</p>
   </div>
 </footer>
@@ -199,6 +207,9 @@ def build(out=os.path.join(ROOT, "_site")):
     images = load_images()
     today = datetime.datetime.now(JST).date().isoformat()
     yado_ids = {y["id"] for y in items}
+    if os.path.exists(out):
+        shutil.rmtree(out)
+    shutil.copytree(os.path.join(ROOT, "site"), out)
     tabs = [("top", "トップ", "")] + [(p["slug"], p["pref"].rstrip("県"), f'{p["slug"]}/') for p in prefs] + [("henro", "遍路宿", "henro/")]
     pages = {}
 
@@ -268,8 +279,9 @@ def build(out=os.path.join(ROOT, "_site")):
   {"".join(sections)}
   <p class="credit-note">評価・件数・夕食の点は楽天トラベルの値（{jp_date(p["checked"])}時点）。行き方の印: ○ 駅から歩ける・バスや送迎で行ける／△ 要確認／? 見つからない。Googleマップの点数は載せていません（4.0以上であることだけ確かめました）。</p>
 </main>'''
+        has_card = make_cards.card(p, os.path.join(out, p["slug"], "og.jpg")) is not None
         pages[f'{p["slug"]}/index.html'] = layout(
-            title=title, desc=desc, url=url, depth=1, body=body,
+            title=title, desc=desc, url=url, depth=1, body=body, og=f"{url}og.jpg" if has_card else "",
             ld=json_ld(f'{p["pref"]}の田舎の宿の候補', url, [(c["name"], f'{url}#h{c["hotelNo"]}') for c in cands]),
             tabs=tabs, current=p["slug"])
 
@@ -290,9 +302,6 @@ def build(out=os.path.join(ROOT, "_site")):
         ld=json_ld("四国の遍路宿", url, [(y["name"], f'{url}#{y["id"]}') for y in henro]),
         tabs=tabs, current="henro")
 
-    if os.path.exists(out):
-        shutil.rmtree(out)
-    shutil.copytree(os.path.join(ROOT, "site"), out)
     for path, page in pages.items():
         os.makedirs(os.path.dirname(os.path.join(out, path)) or out, exist_ok=True)
         with open(os.path.join(out, path), "w", encoding="utf-8") as f:

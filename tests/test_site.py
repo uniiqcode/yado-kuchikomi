@@ -65,6 +65,24 @@ class TestPrefs(unittest.TestCase):
                 self.assertTrue(v["image"].startswith("https://img.travel.rakuten.co.jp/"), no)
 
 
+class TestCards(unittest.TestCase):
+    def test_chain(self):
+        import copy
+        import make_cards
+        p = copy.deepcopy(next(x for x in build_site.load_prefs() if x["slug"] == "wakayama"))
+        for c in p["candidates"]:
+            c.pop("three", None)
+            c.pop("pick", None)
+        self.assertEqual(make_cards.chain(p), [623, 13])
+        for c in p["candidates"][:3]:
+            c["three"] = True
+        self.assertEqual(make_cards.chain(p), [623, 13, 3])
+        p["candidates"][0]["pick"] = "x"
+        self.assertEqual(make_cards.chain(p), [623, 13, 3, 1])
+        for slug in ("niigata", "yamaguchi", "wakayama"):
+            self.assertTrue(os.path.exists(os.path.join(ROOT, "data", "geo", f"{slug}.json")))
+
+
 class TestBuild(unittest.TestCase):
     def test_page(self):
         out = build_site.build(os.path.join(tempfile.mkdtemp(), "_site"))
