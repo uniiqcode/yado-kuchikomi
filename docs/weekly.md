@@ -19,8 +19,9 @@
 1. affiliate-ops で田舎の宿のスキームを回し、候補の CSV（`data/candidates/<日付>_<県>_inaka.csv`）ができる
 2. Claude が `data/prefs/<県の英字>.json` を作る: 調べた日、今の段階（`status`）、絞り込みの段（`funnel`。最後の段の数＝候補の数）、地域（`areas`）、候補の宿（名前は楽天の登録名を整える、一言はウェブで確かめた内容を自分の言葉で、評価・件数・夕食は API の値と日付、行き方の印、人のリンクがあれば `link`）
 3. `python3 scripts/fetch_images.py` で写真の URL を取る（`data/rakuten.json`）
-4. 3軒・1軒が決まったら `status` を書き換え、紹介した宿に `pick`（`data/yado.json` の id）を付ける
-5. テスト・ビルド → PR → 人がマージ
+4. 3軒が決まったら、その3軒に `"three": true` を付けて `status` を書き換える。1軒を紹介したら、その宿に `pick`（`data/yado.json` の id）を付ける。候補の一覧（13軒など）はそのまま残す。共有カードの数は自動で「623軒 → 13軒 → 3軒 → 1軒」になる
+5. 新しい県は `data/geo/<県>.json`（県の形）と、`color`（カードの背景の色）も足す
+6. テスト・ビルド → PR → 人がマージ
 
 ## Threads から飛ばす URL（2026-11-17 人の方針）
 

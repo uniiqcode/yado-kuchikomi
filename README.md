@@ -22,8 +22,10 @@ Threads `@yado_kuchikomi` で紹介した宿を、1ページにまとめたサ�
 |---|---|
 | `data/yado.json` | 紹介した宿（トップ・遍路宿のページ） |
 | `data/prefs/<県>.json` | 県のページ（調べた日・絞り込みの段・候補の宿） |
+| `data/geo/<県>.json` | 県の形（共有カード用。地球地図日本（国土地理院）を加工して作成） |
 | `data/rakuten.json` | 宿の写真と楽天トラベルのページの URL（`scripts/fetch_images.py` が API で取る） |
 | `scripts/build_site.py` | `data/` から `_site/` を作る（トップ・県のページ・遍路宿のページ。一覧は HTML に書き込む） |
+| `scripts/make_cards.py` | 県のページの共有カード（`<県>/og.jpg`）。県の形と「623軒 → 13軒 → 3軒 → 1軒」。Pillow と Noto CJK が要る（GitHub Actions で入れる） |
 | `scripts/fetch_images.py` | 楽天トラベルの API で宿の写真の URL を取る（キーが要る。Claude が手元で動かして `data/rakuten.json` をコミット） |
 | `scripts/make_icons.py` | `design/logo-source.png` からアイコンと共有用の絵を作る（Pillow が必要） |
 | `site/` | CSS・JavaScript・manifest・アイコン |
