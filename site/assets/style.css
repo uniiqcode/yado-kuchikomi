@@ -94,3 +94,9 @@ footer a{color:var(--kaki-dark)}
 .jump{margin:8px 0 0;font-size:14px}
 .jump a{color:var(--kaki-dark);font-weight:600}
 .pick.three{background:#7A8B6E;margin-right:6px}
+.rv{margin:8px 0 0;border-top:1px dashed var(--line);padding-top:6px}
+.rv summary{cursor:pointer;font-weight:700;color:var(--kaki-dark);font-size:14px}
+.rv h4{margin:8px 0 2px;font-size:13.5px;color:var(--kaki-dark)}
+.rv ul{margin:0;padding-left:1.2em;font-size:14px}
+.rv .row{font-size:13.5px}
+.rv-yet{margin:6px 0 0;font-size:12.5px;color:var(--sub)}
