@@ -1,0 +1,88 @@
+{
+ "slug": "yamaguchi",
+ "pref": "山口県",
+ "checked": "2026-11-08",
+ "status": "3軒から、一人で行くなら「原田屋旅館」、だれかと行くなら「国民宿舎 大城」を紹介しました。",
+ "areas": [],
+ "funnel": [
+  [
+   324,
+   "山口県の楽天トラベルの宿"
+  ],
+  [
+   158,
+   "評価4.0以上・クチコミ3件以上・最新のクチコミが2年以内"
+  ],
+  [
+   82,
+   "ホテルを除く（旅館・民宿など）"
+  ],
+  [
+   13,
+   "夕食の評価4.5以上で、市街・大型の旅館を除き、ウェブで確かめる宿"
+  ],
+  [
+   3,
+   "「田舎らしさ」と「夕食」、行き方、Googleマップでも4.0以上を確かめた3軒"
+  ]
+ ],
+ "candidates": [
+  {
+   "hotelNo": "41864",
+   "name": "長門湯本温泉 原田屋旅館",
+   "place": "長門市・長門湯本温泉",
+   "area": "",
+   "lead": "温泉街の小さな宿。おかみの手料理で、海の魚と山菜",
+   "rating": {
+    "score": "4.43",
+    "count": 77,
+    "dinner": "4.64",
+    "checked": "2026-11-08"
+   },
+   "access": {
+    "mark": "○",
+    "note": "長門湯本駅（停留所）から徒歩8分"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F41864%2F41864.html&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9",
+   "pick": "haradaya"
+  },
+  {
+   "hotelNo": "144986",
+   "name": "国民宿舎 大城",
+   "place": "下松市・笠戸島",
+   "area": "",
+   "lead": "島の宿。地元の笠戸ひらめが名物",
+   "rating": {
+    "score": "4.57",
+    "count": 509,
+    "dinner": "4.58",
+    "checked": "2026-11-08"
+   },
+   "access": {
+    "mark": "○",
+    "note": "下松駅から防長バス約20分「国民宿舎前」（本数が少ない）"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F144986%2F144986.html&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9",
+   "pick": "oshiro"
+  },
+  {
+   "hotelNo": "19844",
+   "name": "俵山温泉 たまや旅館",
+   "place": "長門市・俵山温泉",
+   "area": "",
+   "lead": "湯治の町・俵山の旅館。夕食の評価が高い",
+   "rating": {
+    "score": "4.45",
+    "count": 328,
+    "dinner": "4.93",
+    "checked": "2026-11-08"
+   },
+   "access": {
+    "mark": "○",
+    "note": "長門湯本からバス25分・長門市駅から35分・小月駅から60分（楽天の宿情報"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F19844%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9",
+   "pick": ""
+  }
+ ]
+}

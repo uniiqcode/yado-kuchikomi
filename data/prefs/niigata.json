@@ -1,0 +1,92 @@
+{
+ "slug": "niigata",
+ "pref": "新潟県",
+ "checked": "2026-10-30",
+ "status": "3軒から、思い立った平日に一人で行くなら「わすけ」を紹介しました。",
+ "areas": [],
+ "funnel": [
+  [
+   931,
+   "新潟県の楽天トラベルの宿"
+  ],
+  [
+   460,
+   "評価4.0以上・クチコミ3件以上・最新のクチコミが2年以内"
+  ],
+  [
+   131,
+   "ホテル・街中の宿を除き、夕食の評価4.5以上"
+  ],
+  [
+   30,
+   "ウェブで確かめる宿"
+  ],
+  [
+   12,
+   "「田舎らしさ」と「夕食」、冬も電車や送迎で行けるか、Googleマップでも4.0以上"
+  ],
+  [
+   3,
+   "一人でも料理を楽しめて、雪の冬も行けそうな3軒"
+  ]
+ ],
+ "candidates": [
+  {
+   "hotelNo": "151093",
+   "name": "魚沼の隠れ温泉 くつろぎ庵",
+   "place": "南魚沼市",
+   "area": "",
+   "lead": "1日3組の宿。土鍋炊きのコシヒカリと魚沼の郷土料理",
+   "rating": {
+    "score": "4.83",
+    "count": 140,
+    "dinner": "4.73",
+    "checked": "2026-10-30"
+   },
+   "access": {
+    "mark": "○",
+    "note": "越後湯沢駅・浦佐駅から送迎あり（約30分）"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F151093%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9",
+   "pick": ""
+  },
+  {
+   "hotelNo": "14679",
+   "name": "松之山温泉 ひなの宿 ちとせ",
+   "place": "十日町市・松之山温泉",
+   "area": "",
+   "lead": "棚田米をぬか釜で炊く里山料理",
+   "rating": {
+    "score": "4.56",
+    "count": 380,
+    "dinner": "4.67",
+    "checked": "2026-10-30"
+   },
+   "access": {
+    "mark": "○",
+    "note": "ほくほく線まつだい駅から定時送迎（要予約）"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F14679%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9",
+   "pick": ""
+  },
+  {
+   "hotelNo": "29409",
+   "name": "上越料理と地酒の民宿 わすけ",
+   "place": "上越市",
+   "area": "",
+   "lead": "海辺の民宿で、季節の魚料理と地酒",
+   "rating": {
+    "score": "4.64",
+    "count": 324,
+    "dinner": "4.71",
+    "checked": "2026-10-30"
+   },
+   "access": {
+    "mark": "○",
+    "note": "JR信越線 上下浜駅から徒歩5分"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F29409%2F29409.html&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9",
+   "pick": "wasuke"
+  }
+ ]
+}

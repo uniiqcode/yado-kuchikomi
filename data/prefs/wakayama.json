@@ -1,0 +1,274 @@
+{
+ "slug": "wakayama",
+ "pref": "和歌山県",
+ "checked": "2026-11-17",
+ "status": "候補の13軒。この中から金曜日に「行きたい宿の3軒」を選び、土曜日に1軒を紹介します。",
+ "areas": [
+  "南紀白浜・紀伊田辺・龍神",
+  "熊野古道・新宮・本宮・中辺路",
+  "勝浦・串本・すさみ",
+  "御坊・有田・海南・日高"
+ ],
+ "funnel": [
+  [
+   623,
+   "和歌山県の楽天トラベルの宿"
+  ],
+  [
+   299,
+   "評価4.0以上・クチコミ3件以上・最新のクチコミが2年以内"
+  ],
+  [
+   219,
+   "ホテルを除く（旅館・民宿など）"
+  ],
+  [
+   71,
+   "夕食の評価4.5以上"
+  ],
+  [
+   22,
+   "白浜・勝浦の大型温泉宿、和歌山市の市街、高野山の宿坊、オーベルジュ・ヴィラを除く"
+  ],
+  [
+   13,
+   "ウェブで「田舎らしさ」と「夕食」を確かめ、Googleマップでも4.0以上"
+  ]
+ ],
+ "candidates": [
+  {
+   "hotelNo": "52323",
+   "name": "やまさき屋旅館",
+   "place": "古座川町",
+   "area": "勝浦・串本・すさみ",
+   "lead": "古座街道で4代続く旅館",
+   "rating": {
+    "score": "4.73",
+    "count": 320,
+    "dinner": "4.86",
+    "checked": "2026-11-17"
+   },
+   "access": {
+    "mark": "?",
+    "note": "古座川町高池"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F52323%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
+  },
+  {
+   "hotelNo": "30006",
+   "name": "龍神温泉 料理旅館萬屋",
+   "place": "田辺市・龍神温泉",
+   "area": "南紀白浜・紀伊田辺・龍神",
+   "lead": "龍神温泉の料理旅館",
+   "rating": {
+    "score": "4.5",
+    "count": 435,
+    "dinner": "4.67",
+    "checked": "2026-11-17"
+   },
+   "access": {
+    "mark": "○",
+    "note": "紀伊田辺駅から龍神温泉行きのバス（約60〜80分）"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F30006%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
+  },
+  {
+   "hotelNo": "130578",
+   "name": "龍神温泉 民宿旅館 ささゆり",
+   "place": "田辺市・龍神温泉",
+   "area": "南紀白浜・紀伊田辺・龍神",
+   "lead": "全5室",
+   "rating": {
+    "score": "4.5",
+    "count": 62,
+    "dinner": "4.62",
+    "checked": "2026-11-17"
+   },
+   "access": {
+    "mark": "○",
+    "note": "紀伊田辺駅から車で約80分"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F130578%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
+  },
+  {
+   "hotelNo": "76819",
+   "name": "まごころの宿 丸井",
+   "place": "田辺市・龍神村",
+   "area": "南紀白浜・紀伊田辺・龍神",
+   "lead": "手作り料理、熊野牛の陶板焼き・注文後に焼く鮎の塩焼き",
+   "rating": {
+    "score": "4.7",
+    "count": 287,
+    "dinner": "4.7",
+    "checked": "2026-11-17"
+   },
+   "access": {
+    "mark": "○",
+    "note": "紀伊田辺駅から龍神温泉行きのバス約60分、「丸井前」から徒歩1分"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F76819%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
+  },
+  {
+   "hotelNo": "19531",
+   "name": "海鮮居酒屋の宿 若竹",
+   "place": "白浜町・椿",
+   "area": "南紀白浜・紀伊田辺・龍神",
+   "lead": "居酒屋と兼ねた1日3組の民宿",
+   "rating": {
+    "score": "4.83",
+    "count": 30,
+    "dinner": "4.83",
+    "checked": "2026-11-17"
+   },
+   "access": {
+    "mark": "△",
+    "note": "白浜駅から車20分"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F19531%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
+  },
+  {
+   "hotelNo": "19741",
+   "name": "奥白浜椿温泉 湯治のできる宿 しらさぎ",
+   "place": "白浜町・椿",
+   "area": "南紀白浜・紀伊田辺・龍神",
+   "lead": "湯治のできる宿",
+   "rating": {
+    "score": "4.46",
+    "count": 110,
+    "dinner": "4.52",
+    "checked": "2026-11-17"
+   },
+   "access": {
+    "mark": "○",
+    "note": "白浜駅から明光バス約21分「椿温泉」下車すぐ"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F19741%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
+  },
+  {
+   "hotelNo": "7968",
+   "name": "まぐろと地酒の宿 民宿わかたけ",
+   "place": "那智勝浦町",
+   "area": "勝浦・串本・すさみ",
+   "lead": "まぐろの町の民宿",
+   "rating": {
+    "score": "4.53",
+    "count": 372,
+    "dinner": "4.75",
+    "checked": "2026-11-17"
+   },
+   "access": {
+    "mark": "○",
+    "note": "紀伊勝浦駅から徒歩1分（改札は南側、連絡通路で北側へ）"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F7968%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
+  },
+  {
+   "hotelNo": "18483",
+   "name": "まぐろの宿 民宿 亀の井",
+   "place": "那智勝浦町",
+   "area": "勝浦・串本・すさみ",
+   "lead": "天然まぐろが中心の民宿",
+   "rating": {
+    "score": "4.42",
+    "count": 133,
+    "dinner": "4.63",
+    "checked": "2026-11-17"
+   },
+   "access": {
+    "mark": "○",
+    "note": "紀伊勝浦駅から徒歩5分"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F18483%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
+  },
+  {
+   "hotelNo": "8409",
+   "name": "紀州地魚料理 民宿 松林",
+   "place": "有田市",
+   "area": "御坊・有田・海南・日高",
+   "lead": "漁港の町の料理民宿",
+   "rating": {
+    "score": "4.43",
+    "count": 127,
+    "dinner": "4.58",
+    "checked": "2026-11-17"
+   },
+   "access": {
+    "mark": "○",
+    "note": "初島駅から徒歩約5分"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F8409%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
+  },
+  {
+   "hotelNo": "9147",
+   "name": "美奈都旅館",
+   "place": "由良町・衣奈",
+   "area": "御坊・有田・海南・日高",
+   "lead": "衣奈の漁港の旅館",
+   "rating": {
+    "score": "4.5",
+    "count": 35,
+    "dinner": "4.5",
+    "checked": "2026-11-17"
+   },
+   "access": {
+    "mark": "△",
+    "note": "紀伊由良駅から車で8分"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F9147%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
+  },
+  {
+   "hotelNo": "129554",
+   "name": "旅館あづまや",
+   "place": "田辺市・湯の峰温泉",
+   "area": "熊野古道・新宮・本宮・中辺路",
+   "lead": "湯の峰温泉で江戸後期から続く老舗",
+   "rating": {
+    "score": "4.5",
+    "count": 154,
+    "dinner": "4.67",
+    "checked": "2026-11-17"
+   },
+   "access": {
+    "mark": "○",
+    "note": "紀伊田辺駅から龍神バス約110分・新宮駅から約70分「湯の峰温泉」"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F129554%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
+  },
+  {
+   "hotelNo": "7873",
+   "name": "湯の峰温泉 湯の峯荘",
+   "place": "田辺市・湯の峰温泉",
+   "area": "熊野古道・新宮・本宮・中辺路",
+   "lead": "湯の峰温泉の高台の宿",
+   "rating": {
+    "score": "4.54",
+    "count": 584,
+    "dinner": "4.68",
+    "checked": "2026-11-17"
+   },
+   "access": {
+    "mark": "○",
+    "note": "紀伊田辺駅から龍神バス約90分「下湯の峰」から坂を上る"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F7873%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
+  },
+  {
+   "hotelNo": "76936",
+   "name": "小さな宿 Nieche",
+   "place": "太地町",
+   "area": "勝浦・串本・すさみ",
+   "lead": "カフェが営む3室の小さな宿",
+   "rating": {
+    "score": "4.34",
+    "count": 127,
+    "dinner": "5",
+    "checked": "2026-11-17"
+   },
+   "access": {
+    "mark": "○",
+    "note": "太地駅から徒歩5分"
+   },
+   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F76936%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
+  }
+ ]
+}
