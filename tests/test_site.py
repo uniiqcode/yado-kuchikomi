@@ -58,6 +58,11 @@ class TestPrefs(unittest.TestCase):
                 if c["link"]:
                     self.assertTrue(c["link"].startswith("https://hb.afl.rakuten.co.jp/"))
                 self.assertIn(str(c["hotelNo"]), images, f'{c["name"]} の画像が data/rakuten.json にない')
+                rv = c.get("review")
+                if rv:
+                    for k in ("checked", "score", "count", "recent", "good", "caveat"):
+                        self.assertIn(k, rv, f'{c["name"]} のクチコミのまとめに {k} がない')
+                    self.assertTrue(rv["good"], c["name"])
 
     def test_images_are_rakuten(self):
         for no, v in build_site.load_images().items():

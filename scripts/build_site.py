@@ -116,6 +116,19 @@ def cand_card(c, images, yado_ids):
         pick = '<span class="pick three">行きたい宿の3軒</span>' + pick
     img = images.get(str(c["hotelNo"]), {})
     acc = f'<span class="acc {ACCESS.get(a["mark"], "acc-q")}">{e(a["mark"])} {e(a["note"])}</span>' if a.get("note") else ""
+    rv = c.get("review")
+    if rv:
+        rows = "".join(f'<div class="row"><dt>{k}</dt><dd>{e(rv[f])}</dd></div>'
+                       for k, f in (("一人旅", "solo"), ("冬", "winter"), ("行き方", "access")) if rv.get(f))
+        review = f'''<details class="rv" open>
+    <summary>クチコミのまとめ</summary>
+    <p class="src">楽天トラベルのクチコミ{rv["count"]:,}件・評価{e(rv["score"])}（{jp_date(rv["checked"])}時点）、2年以内の{rv["recent"]}件を読んで</p>
+    <h4>良いところ</h4><ul class="good">{"".join(f"<li>{e(g)}</li>" for g in rv["good"])}</ul>
+    <h4>合わない人がいそうな点</h4><ul class="caveat">{"".join(f"<li>{e(x)}</li>" for x in rv["caveat"])}</ul>
+    <dl>{rows}</dl>
+  </details>'''
+    else:
+        review = '<p class="rv-yet">クチコミのまとめは準備中です</p>'
     return f'''<article class="cand" id="h{e(str(c["hotelNo"]))}">
   {pick}
   <h3 class="cn">{e(c["name"])}</h3>
@@ -123,6 +136,7 @@ def cand_card(c, images, yado_ids):
   {photo(c["hotelNo"], c["name"], images)}
   <p class="cr">{e(c["lead"])}</p>
   <div class="cm"><span>楽天 {e(r["score"])}（{r["count"]:,}件）</span><span>夕食 {float(r["dinner"]):.2f}</span>{acc}</div>
+  {review}
   {rakuten_link(c.get("link", ""), img.get("url", ""))}
 </article>'''
 
