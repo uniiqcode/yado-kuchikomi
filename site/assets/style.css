@@ -90,3 +90,6 @@ footer a{color:var(--kaki-dark)}
 .cand .link{margin-top:8px}
 .cand .link a{padding:6px 12px;font-size:14px}
 .credit-note{font-size:12px;color:var(--sub)}
+#candidates{scroll-margin-top:12px}
+.jump{margin:8px 0 0;font-size:14px}
+.jump a{color:var(--kaki-dark);font-weight:600}

@@ -21,3 +21,11 @@
 3. `python3 scripts/fetch_images.py` で写真の URL を取る（`data/rakuten.json`）
 4. 3軒・1軒が決まったら `status` を書き換え、紹介した宿に `pick`（`data/yado.json` の id）を付ける
 5. テスト・ビルド → PR → 人がマージ
+
+## Threads から飛ばす URL（2026-11-17 人の方針）
+
+- 楽天に直接リンクしない日（県の候補の話など）は、Threads にサイトの URL を置く
+- その日の話題の宿がすぐ見えるように、ページの中の場所まで指定する
+  - 県の候補の一覧: `https://uniiqcode.com/yado-kuchikomi/<県>/#candidates`
+  - 候補の1軒: `https://uniiqcode.com/yado-kuchikomi/<県>/#h<楽天の宿番号>`
+  - 紹介した宿: `https://uniiqcode.com/yado-kuchikomi/#<id>`、遍路宿 `https://uniiqcode.com/yado-kuchikomi/henro/#<id>`

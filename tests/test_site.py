@@ -83,6 +83,7 @@ class TestBuild(unittest.TestCase):
             with open(os.path.join(out, p["slug"], "index.html"), encoding="utf-8") as f:
                 sub = f.read()
             self.assertNotIn("{{", sub)
+            self.assertIn('id="candidates"', sub)   # Threads から候補の一覧へ直接飛ぶ
             self.assertIn(f'rel="canonical" href="https://uniiqcode.com/yado-kuchikomi/{p["slug"]}/"', sub)
             for c in p["candidates"]:
                 self.assertIn(c["name"], sub)

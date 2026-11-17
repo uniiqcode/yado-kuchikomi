@@ -2,7 +2,8 @@
 
 使い方: python3 scripts/build_site.py
 - トップ（index.html）: 県のカード・遍路宿・紹介した宿（追加した順＝先着順）
-- 県のページ（<slug>/index.html）: どうやって探したか（絞り込みの段）と、候補の宿（data/prefs/<slug>.json）
+- 県のページ（<slug>/index.html）: どうやって探したか（絞り込みの段）と、候補の宿（data/prefs/<slug>.json）。
+  候補の一覧は #candidates で直接開ける（Threads から「候補の宿」へすぐ飛ばすため）
 - 遍路宿のページ（henro/index.html）: 紹介した遍路宿
 - 宿の写真は data/rakuten.json（scripts/fetch_images.py が楽天トラベルの API で取った URL）。左下に楽天トラベルのクレジット
 - 一覧は HTML に書き込む（検索対策。seo-uniiqcode スキルの手順2）。sitemap.xml も作る
@@ -259,10 +260,11 @@ def build(out=os.path.join(ROOT, "_site")):
   <h1 class="ph1">{e(p["pref"])}の田舎の宿</h1>
   <p class="count">{n_first:,}軒から{len(cands)}軒へ（{jp_date(p["checked"])}に調べました）</p>
   <p class="status">{e(p["status"])}</p>
+  <p class="jump"><a href="#candidates">候補の{len(cands)}軒をすぐに見る ↓</a></p>
   <p class="prnote">このページには、楽天アフィリエイトの広告（PR）のリンクがあります。</p>
   <h2 class="sec">どうやって探したか</h2>
   <div class="funnel">{funnel(p["funnel"])}</div>
-  <h2 class="sec">候補の{len(cands)}軒</h2>
+  <h2 class="sec" id="candidates">候補の{len(cands)}軒</h2>
   {"".join(sections)}
   <p class="credit-note">評価・件数・夕食の点は楽天トラベルの値（{jp_date(p["checked"])}時点）。行き方の印: ○ 駅から歩ける・バスや送迎で行ける／△ 要確認／? 見つからない。Googleマップの点数は載せていません（4.0以上であることだけ確かめました）。</p>
 </main>'''
