@@ -254,5 +254,37 @@
    "alt": "民宿あわらくやの食事（串揚げ・ご飯・小鉢・そうめん）",
    "caption": "撮影: 宿の口コミ（2025年8月）"
   }
+ },
+ {
+  "id": "yunominesou",
+  "name": "湯の峰温泉 湯の峯荘",
+  "hotelNo": 7873,
+  "pref": "和歌山県",
+  "area": "田辺市本宮町",
+  "kind": "田舎の宿",
+  "marks": [
+   "solo"
+  ],
+  "added": "2026-11-21",
+  "lead": "萬屋もしらさぎも行きたくなる。でも最初に行くなら。熊野本宮の奥、湯の峰温泉の宿",
+  "rating": {
+   "source": "楽天トラベル",
+   "score": "4.54",
+   "count": 582,
+   "checked": "2026-11-18"
+  },
+  "good": [
+   "源泉かけ流しの硫黄泉。家族風呂も空いていれば無料で入れる",
+   "夕食は部屋食で品数が多い。朝の温泉粥をほめる声も多い",
+   "スタッフが親切。バス停までの送迎や観光の案内も"
+  ],
+  "caveat": [
+   "人気で予約が取りにくい",
+   "建物・設備は古く、エレベーターが無い。支払いは現金のみ"
+  ],
+  "winter": "",
+  "access": "紀伊田辺駅から龍神バス約90分「下湯の峰」から坂を上る（送迎の声あり）",
+  "own": "",
+  "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F7873%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
  }
 ]
