@@ -17,3 +17,5 @@
 1. Google Search Console（`uniiqcode.com` のドメインプロパティは登録済み）で `https://uniiqcode.com/yado-kuchikomi/sitemap.xml` を送信する
 2. 「URL 検査」で `https://uniiqcode.com/yado-kuchikomi/` の登録をリクエストする
 3. `uniiqcode/uniiqcode.github.io` の `robots.txt` に `Sitemap: https://uniiqcode.com/yado-kuchikomi/sitemap.xml` を1行足す（トップの一覧に足すかは人が決める）
+
+2026-11-18: 1〜3 は済み（サイトマップは「成功しました」・6ページ、トップの登録をリクエスト、robots.txt は uniiqcode.github.io #37）。県のページを足すとサイトマップに自動で入る
