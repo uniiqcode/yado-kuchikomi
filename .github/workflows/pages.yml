@@ -1,13 +1,14 @@
-# main が変わった時に、data/yado.json からページを作って GitHub Pages に公開する。
+# main の data/・site/・scripts/ が変わった時に、ページを作って GitHub Pages に公開する。
 name: ページの公開
 
 on:
   push:
     branches: [main]
     paths:
-      - "data/yado.json"
+      - "data/**"
       - "site/**"
-      - "scripts/build_site.py"
+      - "scripts/**"
+      - "tests/**"
       - ".github/workflows/pages.yml"
   schedule:
     # 毎日 0:05（日本時間）に作り直す。「新着」の印とサイトマップの日付を、その日に合わせるため
