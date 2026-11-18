@@ -64,6 +64,14 @@ class TestPrefs(unittest.TestCase):
                         self.assertIn(k, rv, f'{c["name"]} のクチコミのまとめに {k} がない')
                     self.assertTrue(rv["good"], c["name"])
 
+    def test_own_photos(self):
+        for y in json.load(open(os.path.join(ROOT, "data", "yado.json"), encoding="utf-8")):
+            ph = y.get("photo")
+            if ph:
+                self.assertTrue(ph["file"].startswith("assets/photos/"), y["id"])
+                self.assertTrue(os.path.exists(os.path.join(ROOT, "site", ph["file"])), ph["file"])
+                self.assertIn("撮影", ph["caption"])
+
     def test_images_are_rakuten(self):
         for no, v in build_site.load_images().items():
             if v.get("image"):

@@ -218,5 +218,41 @@
   "access": "車で来た声がほとんど。下松駅から送迎がある（要予約）という声があるので、予約の時に宿に確かめる",
   "own": "",
   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F144986%2F144986.html&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
+ },
+ {
+  "id": "awarakuya",
+  "name": "民宿あわらくや",
+  "pref": "徳島県",
+  "area": "吉野川市川島町",
+  "kind": "遍路の宿",
+  "marks": [
+   "henro"
+  ],
+  "added": "2026-11-22",
+  "lead": "10番切幡寺から11番藤井寺へ。吉野川の川島潜水橋を渡ってすぐの民宿",
+  "rating": {
+   "source": "Googleマップ",
+   "score": "4.9",
+   "count": 83,
+   "checked": "2026-11-18"
+  },
+  "good": [
+   "食事がおいしい（大きめのおにぎりの声も）",
+   "家族で営む宿の、温かく細やかなもてなし",
+   "外国から歩く人も多く、英語でも対応"
+  ],
+  "caveat": [
+   "はっきりした不満は見当たらない（2年以内に★3が2件、どちらも不満の文はない）"
+  ],
+  "winter": "",
+  "access": "JR阿波川島駅から徒歩7分。歩きなら川島潜水橋を渡って徒歩5分（宿の公式ページ）",
+  "own": "2025年8月に泊まりました。ご夫婦の、それは丁寧な対応と食事。一度泊まると忘れられない宿です。",
+  "link": "",
+  "note": "楽天トラベルには載っていない宿です。予約は宿へ電話（0883-25-3699）か、公式ページ https://awarakuya.com/ のフォームで。広告ではありません。",
+  "photo": {
+   "file": "assets/photos/awarakuya.jpg",
+   "alt": "民宿あわらくやの食事（串揚げ・ご飯・小鉢・そうめん）",
+   "caption": "撮影: 宿の口コミ（2025年8月）"
+  }
  }
 ]

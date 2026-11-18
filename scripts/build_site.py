@@ -62,6 +62,15 @@ def photo(no, name, images):
             f'width="600" height="400" referrerpolicy="no-referrer-when-downgrade"><figcaption>楽天トラベル</figcaption></figure>')
 
 
+def own_photo(y):
+    """人が自分で撮った写真（site/assets/photos/）。楽天トラベルの画像ではないので、宿のところだけでなく SNS にも使える。"""
+    ph = y.get("photo")
+    if not ph:
+        return ""
+    return (f'<figure class="ph"><img src="{e(SITE_URL + ph["file"])}" alt="{e(ph["alt"])}" loading="lazy" '
+            f'width="600" height="338"><figcaption>{e(ph["caption"])}</figcaption></figure>')
+
+
 def rakuten_link(link, fallback=""):
     """人が作った楽天アフィリエイトのリンクを優先。無ければ API が返した楽天トラベルのページ。"""
     if link:
@@ -91,7 +100,7 @@ def card(y, images):
     <p class="marks">{marks}</p>
     <button class="save" type="button" aria-pressed="false" aria-label="{e(y["name"])}を行ってみたいに保存">行ってみたい</button>
   </div>
-  {photo(y.get("hotelNo"), y["name"], images)}
+  {own_photo(y) or photo(y.get("hotelNo"), y["name"], images)}
   <p class="lead">{e(y["lead"])}</p>
   {own}
   <p class="src">{e(r["source"])}のクチコミ{r["count"]:,}件・評価{e(r["score"])}（{jp_date(r["checked"])}時点）を読んで</p>
