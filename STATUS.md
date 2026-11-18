@@ -28,12 +28,15 @@
 
 - 2026-11-18: **神奈川のページ**を追加（`data/prefs/kanagawa.json`、県の形 `data/geo/kanagawa.json` は手元の地球地図日本の変換データから）。候補5軒すべてに人が貼ったクチコミのまとめ。次は人が3軒を選ぶ（`three: true`）
 
+- 2026-11-18: 神奈川のページの公開を人が確認。#10 のマージで公開が動かなかった（`pages.yml` の paths が狭かった）→ #11 で `data/**`・`scripts/**` などに広げた
+- 2026-11-18: 人が Search Console でトップの URL 検査（登録をリクエスト）とサイトマップの送信をした。送信直後は「取得できませんでした」→ 1〜2日後に人が見直す。2日たっても同じなら削除して送り直す
+
 ## 次にやること
 
 | やること | 担当 |
 |----------|------|
 | Settings → Pages の Source を「GitHub Actions」にしてから PR #1 をマージ | 人 |
-| 公開の後 → Search Console にサイトマップを送信、robots.txt に1行（`docs/seo.md`） | 人＋Claude |
+| Search Console のサイトマップが「成功しました」になったか見る（送信・robots.txt は済み。`docs/seo.md`） | 人 |
 | 訪問者数のカウンター（GoatCounter）を入れるか決める（入れるならサイトのコードを人が作る） | 人 |
 | 毎週、宿を足す（`docs/weekly.md`） | 人＋Claude |
 
