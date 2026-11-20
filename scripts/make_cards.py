@@ -1,6 +1,8 @@
 """県のページの共有カード（og.jpg、1200×630）を作る。Threads などに URL を貼った時に出る絵。
 
 使い方: python3 scripts/make_cards.py [出力先のフォルダ]   （build_site.py からも呼ばれる）
+- 段ごとのカード（stage）: <県>/s1/ … の小さなページが og-s1.jpg … を出す。投稿にはその日の段の URL を貼る
+  （後で絞り込みが進んでも、前の投稿のカードに先の結果が出ないように）
 - 左に県の形（data/geo/<県>.json。地球地図日本（国土地理院）を加工して作成）、右に県の名前と
   「623軒 → 13軒 → 3軒 → 1軒」のような絞り込みの数（chain()）。下の帯は「宿の口コミ」
 - 背景の色は県ごと（data/prefs/<県>.json の color）
@@ -27,27 +29,34 @@ def _font(name, size):
     raise FileNotFoundError(name)
 
 
-def chain(p):
-    """絞り込みの数の並び。調べた軒数 → 候補 → 行きたい3軒 → 紹介した宿。"""
-    nums = [p["funnel"][0][0], len(p["candidates"])]
+def steps(p):
+    """絞り込みの段の並び [(数, 種類)]。調べた軒数 → 候補 → 行きたい3軒 → 紹介した宿。"""
+    out = [(p["funnel"][0][0], "all"), (len(p["candidates"]), "cands")]
     three = [c for c in p["candidates"] if c.get("three")]
     picks = [c for c in p["candidates"] if c.get("pick")]
-    if three and len(three) < nums[-1]:
-        nums.append(len(three))
-    if picks and len(picks) < nums[-1]:
-        nums.append(len(picks))
-    return nums
+    if three and len(three) < out[-1][0]:
+        out.append((len(three), "three"))
+    if picks and len(picks) < out[-1][0]:
+        out.append((len(picks), "pick"))
+    return out
 
 
-def note(p):
+def chain(p, stage=None):
+    """カードに出す数の並び。stage を渡すとその段まで（投稿の日の段に合わせるため。1=県を決めた時）。"""
+    return [n for n, _ in steps(p)[:stage]]
+
+
+def note(p, stage=None):
     """カードの数の下の一言。"""
-    if p.get("card_note"):
+    if stage is None and p.get("card_note"):
         return p["card_note"]
-    picks = [c for c in p["candidates"] if c.get("pick")]
-    if picks:
-        return "紹介した宿: " + "、".join(c["name"] for c in picks)
-    if any(c.get("three") for c in p["candidates"]):
+    kind = steps(p)[:stage][-1][1]
+    if kind == "pick":
+        return "紹介した宿: " + "、".join(c["name"] for c in p["candidates"] if c.get("pick"))
+    if kind == "three":
         return "この中から、行きたい宿の3軒"
+    if kind == "all":
+        return "評価・夕食・田舎らしさ・行き方で絞ります"
     return "評価・夕食・田舎らしさ・行き方で絞りました"
 
 
@@ -62,7 +71,7 @@ def _wrap(d, text, font, width):
     return lines + ([cur] if cur else [])
 
 
-def card(p, out_path):
+def card(p, out_path, stage=None):
     try:
         from PIL import Image, ImageDraw
         serif, sans, sans_r = "NotoSerifCJK-Bold.ttc", "NotoSansCJK-Bold.ttc", "NotoSansCJK-Regular.ttc"
@@ -92,7 +101,7 @@ def card(p, out_path):
     x0, right = 540, W - 40
     d.text((x0, 72), "田舎の宿", font=_font(serif, 40), fill=(235, 240, 242))
     d.text((x0, 120), p["pref"], font=_font(serif, 92), fill="white")
-    nums = chain(p)
+    nums = chain(p, stage)
     # 数の並びが右に収まる大きさを探す（最後の数だけ大きく・明るく）
     for size in range(84, 30, -2):
         f_n, f_last, f_arrow = _font(sans, size), _font(sans, int(size * 1.3)), _font(sans, int(size * 0.7))
@@ -109,7 +118,7 @@ def card(p, out_path):
         if not last:
             d.text((x + 12, base - size * 0.15), "→", font=f_arrow, fill=(250, 200, 150), anchor="ls")
             x += d.textlength("→", font=f_arrow) + 24
-    text = note(p)
+    text = note(p, stage)
     for size_n in (30, 28, 26, 24):   # 2行に収まり、最後の行が1〜2字だけにならない大きさ
         f_note = _font(sans_r, size_n)
         lines = _wrap(d, text, f_note, right - x0)

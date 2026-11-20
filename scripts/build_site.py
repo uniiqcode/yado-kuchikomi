@@ -14,6 +14,7 @@ import glob
 import html
 import json
 import os
+import re
 import shutil
 import sys
 
@@ -157,6 +158,51 @@ def json_ld(name, url, items):
          "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "url": u} for i, (n, u) in enumerate(items)]},
     ]}
     return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+
+
+def stage_text(p, k):
+    """段ごとのページのタイトルと説明。その段より先の結果（軒数・宿の名前）を出さない。"""
+    st = make_cards.steps(p)[:k]
+    n_first, kind, pref = st[0][0], st[-1][1], p["pref"]
+    if kind == "all":
+        return (f"{pref}の田舎の宿｜{n_first:,}軒から探します｜宿の口コミ",
+                f"{pref}の楽天トラベルの宿{n_first:,}軒から、評価・夕食・田舎らしさ・行き方で田舎の宿を探します。")
+    n_c = st[1][0]
+    if kind == "cands":
+        return (f"{pref}の田舎の宿｜{n_first:,}軒から{n_c}軒へ｜宿の口コミ",
+                f"{pref}の楽天トラベルの宿{n_first:,}軒から、評価・夕食・田舎らしさ・行き方で{n_c}軒に絞りました。どう探したかと、候補の宿の写真・評価・行き方。")
+    if kind == "three":
+        return (f"{pref}の田舎の宿｜{n_c}軒から行きたい宿の3軒｜宿の口コミ",
+                f"{pref}の楽天トラベルの宿{n_first:,}軒から{n_c}軒に絞り、クチコミを読んで行きたい宿の3軒を選びました。")
+    names = "、".join(c["name"] for c in p["candidates"] if c.get("pick"))
+    return (f"{pref}の田舎の宿｜紹介した宿: {names}｜宿の口コミ",
+            f"{pref}の楽天トラベルの宿{n_first:,}軒から絞り込み、クチコミを読んで選んだ宿: {names}。")
+
+
+def stage_page(title, desc, url, og):
+    """段ごとのカードを出すだけのページ。人は県のページへ移る（#の後ろも引き継ぐ）。検索には出さない。
+    og:url は自分の URL にする（Threads が og:url の先のカードを読みに行かないように）。"""
+    return f'''<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{e(title)}</title>
+<meta name="description" content="{e(desc)}">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="宿の口コミ">
+<meta property="og:title" content="{e(title)}">
+<meta property="og:description" content="{e(desc)}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{og}">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<script>location.replace("../" + location.hash)</script>
+</head>
+<body><p><a href="../">{e(title)}</a></p></body>
+</html>
+'''
 
 
 def layout(*, title, desc, url, depth, body, ld, tabs, current, og=""):
@@ -303,6 +349,11 @@ def build(out=os.path.join(ROOT, "_site")):
   <p class="credit-note">評価・件数・夕食の点は楽天トラベルの値（{jp_date(p["checked"])}時点）。行き方の印: ○ 駅から歩ける・バスや送迎で行ける／△ 要確認／? 見つからない。Googleマップの点数は載せていません（4.0以上であることだけ確かめました）。</p>
 </main>'''
         has_card = make_cards.card(p, os.path.join(out, p["slug"], "og.jpg")) is not None
+        if has_card:   # 段ごとのカードと、それを出すだけの小さなページ（投稿にはその日の段の URL を貼る）
+            for k in range(1, len(make_cards.steps(p)) + 1):
+                make_cards.card(p, os.path.join(out, p["slug"], f"og-s{k}.jpg"), stage=k)
+                st, sd = stage_text(p, k)
+                pages[f'{p["slug"]}/s{k}/index.html'] = stage_page(st, sd, f"{url}s{k}/", f"{url}og-s{k}.jpg")
         pages[f'{p["slug"]}/index.html'] = layout(
             title=title, desc=desc, url=url, depth=1, body=body, og=f"{url}og.jpg" if has_card else "",
             ld=json_ld(f'{p["pref"]}の田舎の宿の候補', url, [(c["name"], f'{url}#h{c["hotelNo"]}') for c in cands]),
@@ -329,7 +380,8 @@ def build(out=os.path.join(ROOT, "_site")):
         os.makedirs(os.path.dirname(os.path.join(out, path)) or out, exist_ok=True)
         with open(os.path.join(out, path), "w", encoding="utf-8") as f:
             f.write(page.replace("{{UPDATED}}", jp_date(today)))
-    urls = [SITE_URL] + [f"{SITE_URL}{p.rsplit('/', 1)[0]}/" for p in pages if p != "index.html"]
+    urls = [SITE_URL] + [f"{SITE_URL}{p.rsplit('/', 1)[0]}/" for p in pages
+                         if p != "index.html" and not re.search(r"/s\d+/index\.html$", p)]
     with open(os.path.join(out, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
                 + "".join(f"  <url><loc>{u}</loc><lastmod>{today}</lastmod></url>\n" for u in urls) + "</urlset>\n")
