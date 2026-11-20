@@ -326,8 +326,16 @@ def build(out=os.path.join(ROOT, "_site")):
         cands = p["candidates"]
         groups = p["areas"] or [""]
         sections = []
+        # 行きたい宿の3軒を決めたら、いちばん上にまとめる（紹介した1軒を先頭に）。残りは地域ごと
+        three = sorted((c for c in cands if c.get("three")), key=lambda c: not c.get("pick"))
+        if three:
+            sections.append(f'<h3 class="area">行きたい宿の{len(three)}軒<span>{len(three)}軒</span></h3>'
+                            + "".join(cand_card(c, images, yado_ids) for c in three))
+            if len(three) < len(cands):
+                sections.append(f'<h3 class="area">ほかの候補<span>{len(cands) - len(three)}軒</span></h3>')
+        rest = [c for c in cands if not c.get("three")]
         for a in groups:
-            cs = [c for c in cands if c.get("area", "") == a] if a else cands
+            cs = [c for c in rest if c.get("area", "") == a] if a else rest
             if not cs:
                 continue
             head = f'<h3 class="area">{e(a)}<span>{len(cs)}軒</span></h3>' if a else ""

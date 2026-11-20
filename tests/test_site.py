@@ -101,6 +101,22 @@ class TestCards(unittest.TestCase):
             self.assertTrue(os.path.exists(os.path.join(ROOT, "data", "geo", f"{slug}.json")))
 
 
+class TestThreeFirst(unittest.TestCase):
+    def test_three_on_top(self):
+        out = build_site.build(tempfile.mkdtemp())
+        with open(os.path.join(out, "wakayama", "index.html"), encoding="utf-8") as f:
+            page = f.read()
+        p = next(x for x in build_site.load_prefs() if x["slug"] == "wakayama")
+        ids = [f'id="h{c["hotelNo"]}"' for c in p["candidates"]]
+        order = sorted(ids, key=page.index)
+        three = [f'id="h{c["hotelNo"]}"' for c in p["candidates"] if c.get("three")]
+        self.assertEqual(set(order[:len(three)]), set(three))
+        pick = [f'id="h{c["hotelNo"]}"' for c in p["candidates"] if c.get("pick")]
+        self.assertEqual(order[0], pick[0])
+        for i in ids:
+            self.assertEqual(page.count(i), 1)
+
+
 class TestBuild(unittest.TestCase):
     def test_page(self):
         out = build_site.build(os.path.join(tempfile.mkdtemp(), "_site"))
