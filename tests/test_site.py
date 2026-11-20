@@ -92,7 +92,12 @@ class TestCards(unittest.TestCase):
         self.assertEqual(make_cards.chain(p), [623, 13, 3])
         p["candidates"][0]["pick"] = "x"
         self.assertEqual(make_cards.chain(p), [623, 13, 3, 1])
-        for slug in ("niigata", "yamaguchi", "wakayama"):
+        self.assertEqual(make_cards.chain(p, 1), [623])
+        self.assertEqual(make_cards.chain(p, 2), [623, 13])
+        self.assertEqual(make_cards.chain(p, 3), [623, 13, 3])
+        self.assertNotIn(p["candidates"][0]["name"], make_cards.note(p, 3))
+        self.assertIn(p["candidates"][0]["name"], make_cards.note(p, 4))
+        for slug in ("niigata", "yamaguchi", "wakayama", "kanagawa"):
             self.assertTrue(os.path.exists(os.path.join(ROOT, "data", "geo", f"{slug}.json")))
 
 
