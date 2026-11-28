@@ -1,4 +1,6 @@
-:root{--kaki:#D8691A;--kaki-dark:#A84E10;--ink:#2B2520;--sub:#6E645B;--paper:#FBF7F1;--card:#FFFFFF;--line:#E9DFD3;--solo:#2F6F8F;--henro:#7A5A2E;--save:#C7402F}
+:root{--kaki:#D8691A;--kaki-dark:#A84E10;--ink:#2B2520;--sub:#6E645B;--paper:#FBF7F1;--card:#FFFFFF;--line:#E9DFD3;--solo:#2F6F8F;--henro:#7A5A2E;--save:#C7402F;
+/* 右上の i（ホーム画面に追加する方法。uniiqcode の共通部品 assets/home-guide.js）の色 */
+--hg-accent:var(--kaki-dark);--hg-btn-bg:#fff;--hg-card:var(--card);--hg-ink:var(--ink);--hg-sub:var(--sub);--hg-line:var(--line);--hg-field:var(--paper)}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;line-height:1.7;font-size:16px}

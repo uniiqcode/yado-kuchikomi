@@ -259,6 +259,7 @@ def layout(*, title, desc, url, depth, body, ld, tabs, current, og=""):
 </footer>
 <script src="{up}assets/app.js"></script>
 <script src="https://uniiqcode.com/assets/a2hs.js" data-app="宿の口コミ" defer></script>
+<script src="https://uniiqcode.com/assets/home-guide.js" data-app="宿の口コミ" data-url="https://uniiqcode.com/yado-kuchikomi/" defer></script>
 </body>
 </html>'''
 
