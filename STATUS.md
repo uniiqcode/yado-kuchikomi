@@ -38,6 +38,8 @@
 - 2026-11-24: 人が神奈川の3軒を決定: でぐち荘・落合館・グリーン荘（`three: true`）。カードは s3 まで（1,235 → 5 → 3）。次は人が1軒（`pick`）
 - 2026-11-28: 右上の「i」から「ホーム画面に追加するには」を開けるようにした（花しらべで作った案内を、uniiqcode.com の共通部品 `https://uniiqcode.com/assets/home-guide.js` にして読み込む。SNS のアプリ内で開いた人には URL をコピーして Chrome／Safari で開き直すよう案内し、手順は Android → iPhone の順）。共通部品は uniiqcode.github.io の PR が先にマージされてから表示される。全ページ（`scripts/build_site.py`）、色は柿色（`site/assets/style.css`）
 
+- 2026-11-28: 人が神奈川の1軒を決定: **民宿でぐち荘**。紹介した宿に追加（追加日 11/28）、県の候補に `pick` → カード s4（1,235 → 5 → 3 → 1）
+
 ## 次にやること
 
 | やること | 担当 |
