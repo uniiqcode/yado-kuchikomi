@@ -286,5 +286,37 @@
   "access": "紀伊田辺駅から龍神バス約90分「下湯の峰」から坂を上る（送迎の声あり）",
   "own": "",
   "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F7873%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9"
+ },
+ {
+  "id": "deguchiso",
+  "name": "民宿でぐち荘",
+  "hotelNo": 165762,
+  "pref": "神奈川県",
+  "area": "三浦市三崎町諸磯",
+  "kind": "田舎の宿",
+  "marks": [
+   "solo"
+  ],
+  "added": "2026-11-28",
+  "lead": "落合館もグリーン荘も行きたくなる。でも最初に行くなら。三崎の海辺の民宿",
+  "rating": {
+   "source": "楽天トラベル",
+   "score": "4.62",
+   "count": 122,
+   "checked": "2026-11-18"
+  },
+  "good": [
+   "夕食の量が多く豪華。三崎のマグロ、アワビの踊り焼き、刺身をほめる声がいちばん多い",
+   "海がすぐ近く。夕日や富士山が見え、まわりを散歩できる",
+   "宿の人が気さくで、おばあちゃんの家に来たよう"
+  ],
+  "caveat": [
+   "お風呂は1〜2人が入れるくらいの小ささで、混むと待つ",
+   "2026年のクチコミに、清潔さの指摘（排水口のカビ・髪の毛など）が3件ある"
+  ],
+  "winter": "",
+  "access": "京急の三崎口駅からバスで「浜諸磯」、降りて歩いて1分",
+  "own": "",
+  "link": "https://hb.afl.rakuten.co.jp/hgc/588a187b.fbe77a6d.588a187c.5359350e/?pc=https%3A%2F%2Fimg.travel.rakuten.co.jp%2Fimage%2Ftr%2Fapi%2Fhs%2FdQ4dX%2F%3Ff_no%3D165762"
  }
 ]
